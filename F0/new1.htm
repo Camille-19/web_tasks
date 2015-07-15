@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斐波那契数列</title>
+	<script src="jquery-2.1.4.js"></script>
+	<style>
+		.error{
+			color: #f00;
+			border: 2px solid #abc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<form action="" >
+	<p>你可以输入一个数(1-100)：</p>
+	<p>
+		<input type="text" name="num" id="num" class="auth">
+		<span class="error">请按要求输入！</span>
+	</p>
+	<p>
+		<input type="button" value="提交">
+		<input type="reset" value="取消">
+	</p>
+</body>
+<script>
+function fion(n){
+	if(n<=2) {return 1;
+	}else{
+		return fion(n-1)+fion(n-2);
+	}
+}
+</script>
+<script>
+$("#num").blur(function(){
+	val=$("#num").val();
+	number=parseInt(val); 
+	$("#num").blur(function(){
+		if(number<=0||number>100){
+			$(this).next().show();
+			$(this).data({"s":0});
+		}else{
+			$(this).next().hide();
+			$(this).data({"s":1});
+		}
+	});
+	$(":button").click(function(){
+		cat_1=0;
+		$(".auth").each(function(){
+			cat_1+=$(this).data("s");
+		});
+		if(cat_1==1){
+			var nn=fion(number);
+			alert("第"+number+"项值为:"+nn);
+			}else{
+				alert("服务器未接收到有效值哦!");
+			}
+		});
+});
+</script>
+</html>
