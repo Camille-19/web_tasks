@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斐波那契数列</title>
+	<script src="jquery-2.1.4.js"></script>
+	<style>
+		body{
+			text-align: center;
+			font-size: 18px;
+			font-family: 华文楷体;
+		}
+		.error{
+			color: #f00;
+			border: 2px solid #abc;
+			display: none;
+		}
+		.main{
+			background: #ddd;
+			width: 350px;
+			margin: 150px auto;
+			border: 2px solid;
+		}
+		.nav{
+			background: #bbb;
+			height: 25px;
+			border: 1px solid;
+			padding-top: 8px;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+	<div class="nav">斐波那契数列</div>
+	<form action="" >
+	<p>你可以输入一个数(1-1476)：</p>
+	<p>
+		<input type="text" name="num" id="num" >
+		<span class="error">请按要求输入！</span>
+	</p>
+	<p id="p1">
+		<input type="button" value="提交" id="button_1">
+		<input type="reset" value="清除" id="button_2">
+	</p>
+	<p>
+		<input type="text" name="num_1" id="num_1" >
+	</p>
+	</div>
+</body>
+<script>
+function fib(n){
+    var a,b,result;
+    a = b = 1;
+    if(n<=2) {return a;}
+    for(var i=3;i<=n;i++){
+        result = a + b;
+        a = b;
+        b = result;
+    }
+    return result;
+}
+</script>
+<script>
+$("#num").blur(function(){
+	val=$("#num").val();
+	number=parseInt(val); 
+		if(number<=0||number>1476){
+			$(this).next().show();
+		}else{
+			$(this).next().hide();
+		}
+});
+$("#button_1").click(function(){
+	if(num_1.value!=null){
+	var nn=new Number(fib(number));
+    var node =document.createTextNode("运算结果是:fib"+"("+number+")"+"=");
+  	var new1=document.createElement("p");
+  	new1.appendChild(node);
+  	var element=document.getElementById("p1");
+  	element.appendChild(new1);
+  	var name=document.getElementById("num_1");
+    name.value=String(nn);
+}
+num_1=null;
+});
+$("#button_2").click(function(){
+	window.location='new1.htm';
+});
+</script>
+</html>
