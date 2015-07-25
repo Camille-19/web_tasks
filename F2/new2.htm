@@ -215,7 +215,7 @@ function to_Dec(num,preconv)
 	return newnum;				//返回一个新数
 }
 
-function dec_To(num,newconv)
+function dec_Chg{{(num,newconv)
 {
 	var minus=(num<0);
 	if (newconv==10 || num==0) {return num;}
@@ -237,17 +237,17 @@ function caculate(num1,opr,num2)
 	num1=to_Dec(num1,conv);
 	num2=to_Dec(num2,conv);
 	if (opr=="+")
-		return dec_To(parseFloat(num1)+parseFloat(num2),conv);
+		return dec_Chg{{(parseFloat(num1)+parseFloat(num2),conv);
 	if (opr=="-")
-		return dec_To(num1-num2,conv);
+		return dec_Chg{{(num1-num2,conv);
 	if (opr=="*")
-		return dec_To(num1*num2,conv);
+		return dec_Chg{{(num1*num2,conv);
 	if (opr=="/" && num2!=0)
-		return dec_To(num1/num2,conv);
+		return dec_Chg{{(num1/num2,conv);
 	if (opr=="%")
-		return dec_To(num1%num2,conv);
+		return dec_Chg{{(num1%num2,conv);
 	if (opr=="^")
-		return dec_To(Math.pow(num1,num2),conv);
+		return dec_Chg{{(Math.pow(num1,num2),conv);
 	alert("除数不能为零");
 	return num1;
 }
@@ -287,40 +287,42 @@ function fun_Event(fun,postFun)
 {
 	flag=true;
 	if (flag){
-		document.counter.display.value=dec_To(counter(postFun,(to_Dec(document.counter.display.value,conv))),conv);
+		document.counter.display.value=dec_Chg{{(counter(postFun,(to_Dec(document.counter.display.value,conv))),conv);
 	}
 }
 
-/*运算符*/
+/*运算符,下面两个方法是借的*/
 function opr_Tag(opr,newlevel)
 {
 	flag=true;
 	var temp=save.substr(save.lastIndexOf("(")+1)+document.counter.display.value;
 	while (newlevel!=0 && (newlevel<=(level.charAt(level.length-1))))
 	{
-		temp=parse(temp)
-		level=level.slice(0,-1)
+		temp=express(temp);
+		level=level.slice(0,-1);  
 	}
-	if (temp.match(/^(.*\d[\+\-\*\/\%\^\&\|x])?([+-]?[0-9a-f\.]+)$/)){
+	if (temp.match(/^(.*\d[\+\-\*\/\^\|x])?([+-]?[0-9a-f\.]+)$/)){
 		document.counter.display.value=RegExp.$2;
 	}
 	save=save.substr(0,save.lastIndexOf("(")+1)+temp+opr;
 	document.counter.operator.value=" "+opr+" ";
 	level=level+newlevel;	
 }
-
-function parse(string)
+/*表达式*/
+function express(expression)
 {
-	if (string.match(/^(.*\d[\+\-\*\/\%\^\&\|x\<])?([+-]?[0-9a-f\.]+)([\+\-\*\/\%\^\&\|x\<])([+-]?[0-9a-f\.]+)$/))
-		return(RegExp.$1+caculate(RegExp.$2,RegExp.$3,RegExp.$4))
-	else
-		return string;
+	if (expression.match(/^(.*\d[\+\-\*\/\%\^\|x\<])?([+-]?[0-9a-f\.]+)([\+\-\*\/\%\^\|x\<])([+-]?[0-9a-f\.]+)$/)){
+		return RegExp.$1+caculate(RegExp.$2,RegExp.$3,RegExp.$4);
+	}
+	else{
+		return expression;
+	}
 }
 
 /*进制转换*/
 function tran_Conv(newconv){
 	flag=true;
-	document.counter.display.value=(dec_To(to_Dec(document.counter.display.value,conv),newconv))
+	document.counter.display.value=(dec_Chg{{(to_Dec(document.counter.display.value,conv),newconv))
 	conv=newconv;
 	document.counter.pi.disabled=(conv!=10)
 	document.counter.e.disabled=(conv!=10)
