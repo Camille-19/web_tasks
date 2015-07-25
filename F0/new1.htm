@@ -8,7 +8,7 @@
 		body{
 			text-align: center;
 			font-size: 18px;
-			font-family: 华文楷体;
+			font-family: "微软雅黑";
 		}
 		.error{
 			color: #f00;
@@ -36,19 +36,20 @@
 	<form action="" >
 	<p>你可以输入一个数(1-1476)：</p>
 	<p>
-		<input type="text" name="num" id="num" >
+		<input type="text"  name="num_In" id="num_In">
 		<span class="error">请按要求输入！</span>
 	</p>
-	<p id="p1">
-		<input type="button" value="提交" id="button_1">
-		<input type="reset" value="清除" id="button_2">
+	<p id="para1">
+		<input type="button" value="提交" id="subButton" onclick="calculate()">
+		<input type="reset" name="clrButton" value="清除" id="clrButton">
 	</p>
 	<p>
-		<input type="text" name="num_1" id="num_1" >
+		结果:<input type="text" name="res_Out" id="res_Out">
 	</p>
 	</div>
 </body>
 <script>
+/*计算斐波那契数列*/
 function fib(n){
     var a,b,result;
     a = b = 1;
@@ -62,30 +63,32 @@ function fib(n){
 }
 </script>
 <script>
-$("#num").blur(function(){
-	val=$("#num").val();
+$("#num_In").blur(function(){
+	var val=$("#num_In").val();
 	number=parseInt(val); 
-		if(number<=0||number>1476){
-			$(this).next().show();
-		}else{
-			$(this).next().hide();
-		}
+	if(number>0&&number<=1476){
+		$(this).next().hide();
+	}else{
+		$(this).next().show();
+	}
 });
-$("#button_1").click(function(){
-	if(num_1.value!=null){
-	var nn=new Number(fib(number));
-    var node =document.createTextNode("运算结果是:fib"+"("+number+")"+"=");
-  	var new1=document.createElement("p");
-  	new1.appendChild(node);
-  	var element=document.getElementById("p1");
-  	element.appendChild(new1);
-  	var name=document.getElementById("num_1");
-    name.value=String(nn);
+
+function calculate(){
+	"use strict";
+	var result=new Number(fib(number));
+	var node =document.createTextNode("fib"+"("+number+")"+"=");
+	var para2=document.createElement("p");
+  	para2.appendChild(node);
+	var info_Para=document.getElementById("para1");
+	para2.appendChild(node);
+	var info_Res=document.getElementById("res_Out");
+	info_Res.value=String(result);
 }
-num_1=null;
+
+$("#clrButton").click(function(){
+	"use strict";
+	window.location=window.location;
 });
-$("#button_2").click(function(){
-	window.location='new1.htm';
-});
+
 </script>
 </html>
