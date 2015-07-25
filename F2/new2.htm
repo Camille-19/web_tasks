@@ -10,52 +10,48 @@
 	<div class="main">
 		<form name="counter">
 		<div class="nav"><center>计算器</center></div>
-		<div class="content">
-			<input name="display" readOnly  value=0 >
-		</div>
+		<div class="content"><input name="display" readOnly  value=0 ></div>
 		<div class="convertion">
 			<table>
-				<tr>
-					<td >
-						<table class="hh">
-							<tr>
-								<td>括号显示：<input name=bracket readOnly size=2
-            style="background:silver;"> </td>
-        </tr>
-        <tr>
-            <td>运算符：<input name=operator 
-            readOnly size=2 style="background:silver; "> </td>
-							</tr>
-							<tr height="60px"></tr>
-							<tr>
-							<td>
-								<input type="radio" name="conv" onclick=tran_Conv(16)>十六进制
-							</td>
-							</tr>
-							<tr>
-							<td>
-								<input type="radio" name="conv"  onclick=tran_Conv(10) checked="checked" >十进制
-							</td>
-							</tr>
-							<tr>
-							<td>
-								<input type="radio" name="conv" onclick=tran_Conv(2)>二进制
-							</td>
-							</tr>
-						</table>
-					</td>
-
-					<td>
-						<table class="dd">
-						<tr><td><input type="button" name="na" onclick="getNum('a')" value="A"></td></tr>
-						<tr><td><input type="button" name="nb" onclick="getNum('b')" value="B"></td></tr>
-						<tr><td><input type="button" name="nc" onclick="getNum('c')" value="C"></td></tr>
-						<tr><td><input type="button" name="nd" onclick="getNum('d')" value="D"></td></tr>
-						<tr><td><input type="button" name="ne" onclick="getNum('e')" value="E"></td></tr>
-						<tr><td><input type="button" name="nf" onclick="getNum('f')" value="F"></td></tr>
+			<tr>
+				<td >
+					<table class="hh">
+					<tr>
+						<td>括号显示：<input name=bracket readOnly size=2 style="background:silver;"> </td>
+        				</tr>
+        				<tr>
+        					<td>运算符：<input name=operator readOnly size=2 style="background:silver; "> </td>
+					</tr>
+					<tr height="60px"></tr>
+					<tr>
+						<td>
+							<input type="radio" name="conv" onclick=tran_Conv(16)>十六进制
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="conv"  onclick=tran_Conv(10) checked="checked" >十进制
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="conv" onclick=tran_Conv(2)>二进制
+						</td>
+					</tr>
 					</table>
-					</td>
-					<td>
+				</td>
+
+				<td>
+					<table class="dd">
+					<tr><td><input type="button" name="na" onclick="getNum('a')" value="A"></td></tr>
+					<tr><td><input type="button" name="nb" onclick="getNum('b')" value="B"></td></tr>
+					<tr><td><input type="button" name="nc" onclick="getNum('c')" value="C"></td></tr>
+					<tr><td><input type="button" name="nd" onclick="getNum('d')" value="D"></td></tr>
+					<tr><td><input type="button" name="ne" onclick="getNum('e')" value="E"></td></tr>
+					<tr><td><input type="button" name="nf" onclick="getNum('f')" value="F"></td></tr>
+					</table>
+				</td>
+				<td>
 					<table class="kk">
 					<tr>
 					<th><input type="button" onclick="fun_Event('!','!')" value="!"></th>
@@ -70,38 +66,38 @@
 					<td><input type="button" onclick="fun_Event('e','e')" value="e"></td>
 					<td><input type="button" onclick="clearall()" value="CL"></td>
 					<td><input type="button" onclick="" value="M-"></td>
-				</tr>
-				<tr>					
+					</tr>
+					<tr>					
 					<td><input name=n7 onClick="getNum('7')" type="button" value="7"></td>
 					<td><input name=n8 onclick="getNum('8')" type="button" value="8"></td>
 					<td><input name=n9 onclick="getNum('9')" type="button" value="9"></td>
 					<td><input type="button" onclick="opr_Tag('+',5)" value="+"></td>
 					<td><input type="button" value="M"></td>
-				</tr>
-				<tr>					
+					</tr>
+					<tr>					
 					<td><input name=n4 onclick="getNum('4')" type="button" value="4"></td>
 					<td><input name=n5 onclick="getNum('5')" type="button" value="5"></td>
 					<td><input name=n6 onclick="getNum('6')" type="button" value="6"></td>
 					<td><input onclick="opr_Tag('-',5)" type="button" value="-"></td>
 					<td><input type="button" onClick="opr_Tag('%',6)" value="%"></td>
-				</tr>
-				<tr>					
+					</tr>
+					<tr>					
 					<td><input onclick="getNum('1')" type="button" value="1"></td>
 					<td><input name=n2 onclick="getNum('2')" type="button" value="2"></td>
 					<td><input name=n3 onclick="getNum('3')" type="button" value="3"></td>
 					<td><input type="button" onclick="opr_Tag('*',6)" value="*"></td>
 					<td><input type="button" name=ln onclick="fun_Event('ln','ln')" value="ln"></td>
-				</tr>
-				<tr>
+					</tr>
+					<tr>
 					<td><input type="button" onclick="getNum('0')" type="button" value="0"></td>
 					<td><input type="button" name=kp onclick="getNum('.')" value="."></td>
 					<td><input type="button" name=pi onclick="fun_Event('pi','pi')" value="π"></td>
 					<td><input type="button" onclick="opr_Tag('/',6)" value="/"></td>
 					<td><input type="button" onclick="result()" value="="></td>
-				</tr>
-			</table>
+					</tr>
+					</table>
 				</td>
-				</tr>
+			</tr>
 			</table>
 		</div>
 		</form>
@@ -165,7 +161,7 @@ function result()
 {
 	flag=true;
 	while (layer>0)
-		num2_brac();
+		right_brac();
 	var temp=save+document.counter.display.value;
 	while ((level.charAt(level.length-1))>0)
 	{
