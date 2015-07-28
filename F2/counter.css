@@ -1,7 +1,7 @@
 	*{
 		padding:0;
 		margin: 0;
-		background: lightblue;
+		background:lightblue;
 	}
 	.main{
 		font-family:"微软雅黑";
@@ -32,7 +32,7 @@
 		text-align: right;
 		font-size: 30px;
 		color: #fff;
-		background: #606060;
+		background:#F08080;
 	}
 	.convertion{
 		border: 1px solid;
@@ -40,7 +40,6 @@
 		height:254px;
 		margin: 0 auto;
 		font-size: 14px;
-		background:#A9A9A9;
 		border-radius: 3px;
 		display: block;
 	}
