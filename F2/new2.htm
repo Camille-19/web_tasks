@@ -17,10 +17,10 @@
 				<td >
 					<table class="hh">
 					<tr>
-						<td>括号显示：<input name=bracket readOnly size=2 style="background:silver;"> </td>
+						<td>括号显示：<input name=bracket readOnly size=4 style="background:silver;"> </td>
         				</tr>
         				<tr>
-        					<td>运算符：<input name=operator readOnly size=2 style="background:silver; "> </td>
+        					<td>运算符：<input name=operator readOnly size=4  style="background:silver; "> </td>
 					</tr>
 					<tr height="60px"></tr>
 					<tr>
@@ -62,34 +62,34 @@
 					</tr>
 					<tr>					
 					<td><input type="button" onclick="brac_show()" value="("></td>
-					<td><input type="button" onclick="num2_brac()" value=")"></td>
+					<td><input type="button" onclick="right_brac()" value=")"></td>
 					<td><input type="button" onclick="fun_Event('e','e')" value="e"></td>
 					<td><input type="button" onclick="clearall()" value="CL"></td>
 					<td><input type="button" onclick="" value="M-"></td>
 					</tr>
 					<tr>					
-					<td><input name=n7 onClick="getNum('7')" type="button" value="7"></td>
-					<td><input name=n8 onclick="getNum('8')" type="button" value="8"></td>
-					<td><input name=n9 onclick="getNum('9')" type="button" value="9"></td>
+					<td><input name=n7 onClick="getNum('7')" type="button" value="7" style="background:#6A5ACD;"></td>
+					<td><input name=n8 onclick="getNum('8')" type="button" value="8" style="background:#6A5ACD;"></td>
+					<td><input name=n9 onclick="getNum('9')" type="button" value="9" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('+',5)" value="+"></td>
 					<td><input type="button" value="M"></td>
 					</tr>
 					<tr>					
-					<td><input name=n4 onclick="getNum('4')" type="button" value="4"></td>
-					<td><input name=n5 onclick="getNum('5')" type="button" value="5"></td>
-					<td><input name=n6 onclick="getNum('6')" type="button" value="6"></td>
+					<td><input name=n4 onclick="getNum('4')" type="button" value="4" style="background:#6A5ACD;"></td>
+					<td><input name=n5 onclick="getNum('5')" type="button" value="5" style="background:#6A5ACD;"></td>
+					<td><input name=n6 onclick="getNum('6')" type="button" value="6" style="background:#6A5ACD;"></td>
 					<td><input onclick="opr_Tag('-',5)" type="button" value="-"></td>
 					<td><input type="button" onClick="opr_Tag('%',6)" value="%"></td>
 					</tr>
 					<tr>					
-					<td><input onclick="getNum('1')" type="button" value="1"></td>
-					<td><input name=n2 onclick="getNum('2')" type="button" value="2"></td>
-					<td><input name=n3 onclick="getNum('3')" type="button" value="3"></td>
+					<td><input onclick="getNum('1')" type="button" value="1" style="background:#6A5ACD;"></td>
+					<td><input name=n2 onclick="getNum('2')" type="button" value="2" style="background:#6A5ACD;"></td>
+					<td><input name=n3 onclick="getNum('3')" type="button" value="3" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('*',6)" value="*"></td>
 					<td><input type="button" name=ln onclick="fun_Event('ln','ln')" value="ln"></td>
 					</tr>
 					<tr>
-					<td><input type="button" onclick="getNum('0')" type="button" value="0"></td>
+					<td><input type="button" onclick="getNum('0')" type="button" value="0" style="background:#6A5ACD;"></td>
 					<td><input type="button" name=kp onclick="getNum('.')" value="."></td>
 					<td><input type="button" name=pi onclick="fun_Event('pi','pi')" value="π"></td>
 					<td><input type="button" onclick="opr_Tag('/',6)" value="/"></td>
@@ -104,7 +104,6 @@
 	</div>
 </body>
 <script>
-
 /*数字显示*/
 var conv=10;  	//表示当前进制数
 var flag=true;
@@ -123,7 +122,6 @@ function getNum(num)
 		document.counter.display.value +=num;
 	}
 }
-
 /*括号*/
 var layer=0;     //括号层数变量
 var save="";	 //用来保存本次输入之前的内容变量
@@ -142,7 +140,7 @@ function right_brac()
 	var tmp=save.substr(save.lastIndexOf("(")+1)+document.counter.display.value;
 	while ((level.charAt(level.length-1))>0)
 	{
-		tmp=parse(tmp);
+		tmp=express(tmp);
 		level=level.slice(0,-1);
 	}	
 	document.counter.display.value=tmp;
@@ -155,7 +153,6 @@ function right_brac()
 	}else{
 		document.counter.bracket.value="";}
 }
-
 /*等号*/
 function result()
 {
@@ -165,7 +162,7 @@ function result()
 	var temp=save+document.counter.display.value;
 	while ((level.charAt(level.length-1))>0)
 	{
-		temp=parse(temp);
+		temp=express(temp);
 		level=level.slice(0,-1)
 	}
 	document.counter.display.value=temp;
@@ -174,7 +171,6 @@ function result()
 	save="";
 	level="0";
 }
-
 /*回退键*/
 function deletePre()
 {
@@ -185,7 +181,6 @@ function deletePre()
 		}else{document.counter.display.value=0;}
 	}
 }
-
 /*清除键*/
 function clearall()
 {
@@ -197,7 +192,6 @@ function clearall()
 	document.counter.operator.value="";
 	document.counter.bracket.value="";
 }
-
 /*十进制转换*/
 var hexnum="0123456789abcdef";
 function to_Dec(num,preconv)
@@ -214,8 +208,7 @@ function to_Dec(num,preconv)
 	}
 	return newnum;				//返回一个新数
 }
-
-function dec_Chg{{(num,newconv)
+function dec_Chg(num,newconv)
 {
 	var minus=(num<0);
 	if (newconv==10 || num==0) {return num;}
@@ -230,28 +223,26 @@ function dec_Chg{{(num,newconv)
 		{newnum="-"+newnum};
 	return newnum;
 }
-
 /*运算功能实现*/
 function caculate(num1,opr,num2)
 {
 	num1=to_Dec(num1,conv);
 	num2=to_Dec(num2,conv);
 	if (opr=="+")
-		return dec_Chg{{(parseFloat(num1)+parseFloat(num2),conv);
+		return dec_Chg(parseFloat(num1)+parseFloat(num2),conv);
 	if (opr=="-")
-		return dec_Chg{{(num1-num2,conv);
+		return dec_Chg(num1-num2,conv);
 	if (opr=="*")
-		return dec_Chg{{(num1*num2,conv);
+		return dec_Chg(num1*num2,conv);
 	if (opr=="/" && num2!=0)
-		return dec_Chg{{(num1/num2,conv);
+		return dec_Chg(num1/num2,conv);
 	if (opr=="%")
-		return dec_Chg{{(num1%num2,conv);
+		return dec_Chg(num1%num2,conv);
 	if (opr=="^")
-		return dec_Chg{{(Math.pow(num1,num2),conv);
+		return dec_Chg(Math.pow(num1,num2),conv);
 	alert("除数不能为零");
 	return num1;
 }
-
 /*阶乘函数*/
 function fact(n)
 {
@@ -262,7 +253,6 @@ function fact(n)
 	}
 	return(fac);
 }
-
 /*计算器函数库*/
 function counter(fun,num)
 {
@@ -281,16 +271,14 @@ function counter(fun,num)
 		return num;
 	}
 }
-
 /*函数键*/
 function fun_Event(fun,postFun)
 {
 	flag=true;
 	if (flag){
-		document.counter.display.value=dec_Chg{{(counter(postFun,(to_Dec(document.counter.display.value,conv))),conv);
+		document.counter.display.value=dec_Chg(counter(postFun,(to_Dec(document.counter.display.value,conv))),conv);
 	}
 }
-
 /*运算符,下面两个方法是借的*/
 function opr_Tag(opr,newlevel)
 {
@@ -318,11 +306,10 @@ function express(expression)
 		return expression;
 	}
 }
-
 /*进制转换*/
 function tran_Conv(newconv){
 	flag=true;
-	document.counter.display.value=(dec_Chg{{(to_Dec(document.counter.display.value,conv),newconv))
+	document.counter.display.value=(dec_Chg(to_Dec(document.counter.display.value,conv),newconv))
 	conv=newconv;
 	document.counter.pi.disabled=(conv!=10)
 	document.counter.e.disabled=(conv!=10)
@@ -342,6 +329,5 @@ function tran_Conv(newconv){
 	document.counter.ne.disabled=(conv<=10)
 	document.counter.nf.disabled=(conv<=10)	
 }
-
 </script>
 </html>
