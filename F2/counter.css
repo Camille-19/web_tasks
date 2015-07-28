@@ -1,12 +1,12 @@
 	*{
 		padding:0;
 		margin: 0;
+		background: lightblue;
 	}
 	.main{
 		font-family:"微软雅黑";
 		width:415px;
 		height:385px;
-		background:#200;
 		margin:120px auto;
 		border: 1px double;
 		border-radius: 3px;
@@ -15,14 +15,12 @@
 		height:23px;
 		margin: 5px auto;
 		font-size:18px;
-		color: #fff;
 	}
 	.content{
 		width:395px;
 		padding-bottom: 4px;
 		margin: 0 auto;
 		border: 2px;
-		background: #696969;
 	}
 	.content input{
 		height:80px;
@@ -33,7 +31,8 @@
 		line-height: 30px;
 		text-align: right;
 		font-size: 30px;
-		background:silver;
+		color: #fff;
+		background: #606060;
 	}
 	.convertion{
 		border: 1px solid;
@@ -54,15 +53,15 @@
 	.kk input{
 		width: 50px;
 		height: 39px;
-		background: #222;
-		color: #fff;
+		border-radius: 5px;
+		color: #000;
 		text-align: center;
 }
 	.dd input{
 		width: 50px;
 		height: 39px;
-		background: #222;
+		background:orange;
+		border-radius: 5px;
 		color: #fff;
-		text-align: center;
-		
+		text-align: center;	
 	}
