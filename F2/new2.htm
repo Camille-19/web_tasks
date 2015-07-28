@@ -43,21 +43,21 @@
 
 				<td>
 					<table class="dd">
-					<tr><td><input type="button" name="na" onclick="getNum('a')" value="A"></td></tr>
-					<tr><td><input type="button" name="nb" onclick="getNum('b')" value="B"></td></tr>
-					<tr><td><input type="button" name="nc" onclick="getNum('c')" value="C"></td></tr>
-					<tr><td><input type="button" name="nd" onclick="getNum('d')" value="D"></td></tr>
-					<tr><td><input type="button" name="ne" onclick="getNum('e')" value="E"></td></tr>
-					<tr><td><input type="button" name="nf" onclick="getNum('f')" value="F"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('a')" value="A"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('b')" value="B"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('c')" value="C"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('d')" value="D"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('e')" value="E"></td></tr>
+					<tr><td><input type="button" id="noEdit3" onclick="getNum('f')" value="F"></td></tr>
 					</table>
 				</td>
 				<td>
 					<table class="kk">
 					<tr>
-					<th><input type="button" onclick="fun_Event('!','!')" value="!"></th>
-					<th><input type="button" onclick="opr_Tag('^',7)" value="^"></th>
-					<th><input type="button" onclick="fun_Event('√','sqrt')" value="√"></th>
-					<th><input type="button" onclick="fun_Event('e','e')" value="e"></th>
+					<th><input type="button" id="noEdit1" onclick="fun_Event('!','!')" value="!"></th>
+					<th><input type="button" id="noEdit1" onclick="opr_Tag('^',7)" value="^"></th>
+					<th><input type="button" id="noEdit1" onclick="fun_Event('√','sqrt')" value="√"></th>
+					<th><input type="button" id="noEdit1" onclick="fun_Event('e','e')" value="e"></th>
 					<th><input type="button" onclick="" value="M+"></th>
 					</tr>
 					<tr>					
@@ -68,30 +68,30 @@
 					<td><input type="button" onclick="" value="M-"></td>
 					</tr>
 					<tr>					
-					<td><input name=n7 onClick="getNum('7')" type="button" value="7" style="background:#6A5ACD;"></td>
-					<td><input name=n8 onclick="getNum('8')" type="button" value="8" style="background:#6A5ACD;"></td>
-					<td><input name=n9 onclick="getNum('9')" type="button" value="9" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onClick="getNum('7')" type="button" value="7" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('8')" type="button" value="8" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('9')" type="button" value="9" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('+',5)" value="+" style="background:lightgreen;"></td>
 					<td><input type="button" value="M"></td>
 					</tr>
 					<tr>					
-					<td><input name=n4 onclick="getNum('4')" type="button" value="4" style="background:#6A5ACD;"></td>
-					<td><input name=n5 onclick="getNum('5')" type="button" value="5" style="background:#6A5ACD;"></td>
-					<td><input name=n6 onclick="getNum('6')" type="button" value="6" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('4')" type="button" value="4" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('5')" type="button" value="5" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('6')" type="button" value="6" style="background:#6A5ACD;"></td>
 					<td><input onclick="opr_Tag('-',5)" type="button" value="-" style="background:lightgreen;"></td>
 					<td><input type="button" onClick="opr_Tag('%',6)" value="%"></td>
 					</tr>
 					<tr>					
 					<td><input onclick="getNum('1')" type="button" value="1" style="background:#6A5ACD;"></td>
-					<td><input name=n2 onclick="getNum('2')" type="button" value="2" style="background:#6A5ACD;"></td>
-					<td><input name=n3 onclick="getNum('3')" type="button" value="3" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2" onclick="getNum('2')" type="button" value="2" style="background:#6A5ACD;"></td>
+					<td><input id="noEdit2"  onclick="getNum('3')" type="button" value="3" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('*',6)" value="*" style="background:lightgreen;"></td>
 					<td><input type="button" name=ln onclick="fun_Event('ln','ln')" value="ln"></td>
 					</tr>
 					<tr>
 					<td><input type="button" onclick="getNum('0')" type="button" value="0" style="background:#6A5ACD;"></td>
-					<td><input type="button" name=kp onclick="getNum('.')" value="." style="background:#6B8E23;"></td>
-					<td><input type="button" name=pi onclick="fun_Event('pi','pi')" value="π" style="background:#6A5ACD;"></td>
+					<td><input type="button" onclick="getNum('.')" value="." style="background:#6B8E23;"></td>
+					<td><input type="button" id="noEdit1" onclick="fun_Event('pi','pi')" value="π" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('/',6)" value="/" style="background:lightgreen;"></td>
 					<td><input type="button" onclick="result()" value="=" style="background:pink;"></td>
 					</tr>
@@ -104,30 +104,39 @@
 	</div>
 </body>
 <script>
+
 /*数字显示*/
 var conv=10;  	//表示当前进制数
 var flag=true;
-function getNum(num)
-{
+function getNum(num) {
+
 	var index=num.charCodeAt(0);
+
 	if ((conv==2 && (index==48 || index==49))
 	 || (conv==10 && (index>=48 && index<=57 ||index==46))
 	 ||(conv==16 && ((index>=48 && index<=57)|| (index>=97 && index<=102))))
-	if(flag){
+
+	if (flag) {
 		flag=false;
 		document.counter.display.value =num;
-	}else if(document.counter.display.value == null || document.counter.display.value == "0"){
+	}
+
+	else if (document.counter.display.value == null || document.counter.display.value == "0") {
 		document.counter.display.value=num;
-	}else{
+	}
+
+	else {
 		document.counter.display.value +=num;
 	}
 }
+
 /*括号*/
 var layer=0;     //括号层数变量
 var save="";	 //用来保存本次输入之前的内容变量
 var level="0";
 function brac_show()
 {
+	
 	document.counter.display.value=0;
 	save=save+"(";
 	document.counter.operator.value="   ";
@@ -135,52 +144,65 @@ function brac_show()
 	layer+=1;
 	document.counter.bracket.value="层数:"+layer;
 }
+
 function right_brac()  
 {
 	var tmp=save.substr(save.lastIndexOf("(")+1)+document.counter.display.value;
+
 	while ((level.charAt(level.length-1))>0)
 	{
 		tmp=express(tmp);
 		level=level.slice(0,-1);
 	}	
+
 	document.counter.display.value=tmp;
 	save=save.substr(0,save.lastIndexOf("("));
 	document.counter.operator.value="   ";
 	level=level.slice(0,-1);
 	layer-=1;
-	if (layer>0){
+
+	if (layer>0) {
 		document.counter.bracket.value="(="+layer;
-	}else{
+	}else {
 		document.counter.bracket.value="";}
 }
+
+
 /*等号*/
 function result()
 {
 	flag=true;
-	while (layer>0)
+	while (layer>0) {
 		right_brac();
+	}
 	var temp=save+document.counter.display.value;
+
 	while ((level.charAt(level.length-1))>0)
 	{
 		temp=express(temp);
 		level=level.slice(0,-1)
 	}
+
 	document.counter.display.value=temp;
 	document.counter.bracket.value="";
 	document.counter.operator.value="";
 	save="";
 	level="0";
 }
+
+
 /*回退键*/
 function deletePre()
 {
-	if (!flag){
+	if (!flag) {
 		document.counter.display.value;
-		if(document.counter.display.value.length>1){
+		if (document.counter.display.value.length>1) {
 			document.counter.display.value=document.counter.display.value.substring(0,document.counter.display.value.length-1);
-		}else{document.counter.display.value=0;}
+		}else {document.counter.display.value=0;}
 	}
 }
+
+
 /*清除键*/
 function clearall()
 {
@@ -192,42 +214,55 @@ function clearall()
 	document.counter.operator.value="";
 	document.counter.bracket.value="";
 }
+
+
 /*十进制转换*/
 var hexnum="0123456789abcdef";
 function to_Dec(num,preconv)
 {
 	if (preconv==10||num==0) return num;
+
 	var minus=(num.charAt(0)=="-");
 	if (minus) {num=num.substr(1);}
+
 	var newnum=0;
-	for (var index=1;index<=num.length;index++){
+	for (var index=1;index<=num.length;index++) {
 		newnum=newnum*preconv+hexnum.indexOf(num.charAt(index-1));
 	}
+
 	if (minus){                 //考虑负数的情况
 		newnum=-newnum;
 	}
+
 	return newnum;				//返回一个新数
 }
+
+
 function dec_Chg(num,newconv)
 {
 	var minus=(num<0);
 	if (newconv==10 || num==0) {return num;}
 	num=""+Math.abs(num);
 	var newnum="";
+
 	while (num!=0)
 	{
 		newnum=hexnum.charAt(num%newconv)+newnum;
 		num=Math.floor(num/newconv);
 	}
+
 	if (minus)         
 		{newnum="-"+newnum};
 	return newnum;
 }
+
+
 /*运算功能实现*/
 function caculate(num1,opr,num2)
 {
 	num1=to_Dec(num1,conv);
 	num2=to_Dec(num2,conv);
+
 	if (opr=="+")
 		return dec_Chg(parseFloat(num1)+parseFloat(num2),conv);
 	if (opr=="-")
@@ -243,6 +278,8 @@ function caculate(num1,opr,num2)
 	alert("除数不能为零");
 	return num1;
 }
+
+
 /*阶乘函数*/
 function fact(n)
 {
@@ -253,6 +290,8 @@ function fact(n)
 	}
 	return(fac);
 }
+
+
 /*计算器函数库*/
 function counter(fun,num)
 {
@@ -271,14 +310,18 @@ function counter(fun,num)
 		return num;
 	}
 }
+
+
 /*函数键*/
 function fun_Event(fun,postFun)
 {
 	flag=true;
-	if (flag){
+	if (flag) {
 		document.counter.display.value=dec_Chg(counter(postFun,(to_Dec(document.counter.display.value,conv))),conv);
 	}
 }
+
+
 /*运算符,下面两个方法是借的*/
 function opr_Tag(opr,newlevel)
 {
@@ -289,45 +332,48 @@ function opr_Tag(opr,newlevel)
 		temp=express(temp);
 		level=level.slice(0,-1);  
 	}
-	if (temp.match(/^(.*\d[\+\-\*\/\^\|x])?([+-]?[0-9a-f\.]+)$/)){
+	if (temp.match(/^(.*\d[\+\-\*\/\^\|x])?([+-]?[0-9a-f\.]+)$/)) {
 		document.counter.display.value=RegExp.$2;
 	}
 	save=save.substr(0,save.lastIndexOf("(")+1)+temp+opr;
 	document.counter.operator.value=" "+opr+" ";
 	level=level+newlevel;	
 }
+
+
 /*表达式*/
 function express(expression)
 {
-	if (expression.match(/^(.*\d[\+\-\*\/\%\^\|x\<])?([+-]?[0-9a-f\.]+)([\+\-\*\/\%\^\|x\<])([+-]?[0-9a-f\.]+)$/)){
+	if (expression.match(/^(.*\d[\+\-\*\/\%\^\|x\<])?([+-]?[0-9a-f\.]+)([\+\-\*\/\%\^\|x\<])([+-]?[0-9a-f\.]+)$/)) {
 		return RegExp.$1+caculate(RegExp.$2,RegExp.$3,RegExp.$4);
 	}
-	else{
+	else {
 		return expression;
 	}
 }
+
+
 /*进制转换*/
-function tran_Conv(newconv){
+function tran_Conv(newconv) {
 	flag=true;
 	document.counter.display.value=(dec_Chg(to_Dec(document.counter.display.value,conv),newconv))
 	conv=newconv;
-	document.counter.pi.disabled=(conv!=10)
-	document.counter.e.disabled=(conv!=10)
-	document.counter.kp.disabled=(conv!=10)
-	document.counter.n2.disabled=(conv<=2)
-	document.counter.n3.disabled=(conv<=2)
-	document.counter.n4.disabled=(conv<=2)
-	document.counter.n5.disabled=(conv<=2)
-	document.counter.n6.disabled=(conv<=2)
-	document.counter.n7.disabled=(conv<=2)
-	document.counter.n8.disabled=(conv<=8)
-	document.counter.n9.disabled=(conv<=8)
-	document.counter.na.disabled=(conv<=10)
-	document.counter.nb.disabled=(conv<=10)
-	document.counter.nc.disabled=(conv<=10)
-	document.counter.nd.disabled=(conv<=10)
-	document.counter.ne.disabled=(conv<=10)
-	document.counter.nf.disabled=(conv<=10)	
+	switch (conv){
+		case 2:
+			$("input#noEdit1,input#noEdit2,input#noEdit3").css("background-color","#ccc");
+			$("input#noEdit1,input#noEdit2,input#noEdit3").disabled=false;
+			break;
+
+		case 10:
+			$("input#noEdit3").css("background-color","#ccc");
+		$("input#noEdit3").disabled=false;
+			break;	
+
+		case 16:
+			$("input#noEdit1").css("background-color","#ccc");
+			$("input#noEdit1").disabled=false;
+			break;
+	}
 }
 </script>
 </html>
