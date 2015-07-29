@@ -18,9 +18,12 @@
 					<table class="hh">
 					<tr>
 						<td>括号显示：<input name=bracket readOnly size=4 style="background:silver;"> </td>
-        				</tr>
-        				<tr>
+        			</tr>
+        			<tr>
         					<td>运算符：<input name=operator readOnly size=4  style="background:silver; "> </td>
+					</tr>
+					<tr>
+        					<td>存储成功：<input name=memory readOnly size=4  style="background:silver; "> </td>
 					</tr>
 					<tr height="60px"></tr>
 					<tr>
@@ -58,21 +61,21 @@
 					<th><input type="button" id="noEdit1" onclick="opr_Tag('^',7)" value="^"></th>
 					<th><input type="button" id="noEdit1" onclick="fun_Event('√','sqrt')" value="√"></th>
 					<th><input type="button" id="noEdit1" onclick="fun_Event('e','e')" value="e"></th>
-					<th><input type="button" onclick="" value="M+"></th>
+					<th><input type="button"  value="M+" onclick="inMemory()"></th>
 					</tr>
 					<tr>					
 					<td><input type="button" onclick="brac_show()" value="(" style="background:lightgreen;"></td>
 					<td><input type="button" onclick="right_brac()" value=")" style="background:lightgreen;"></td>
 					<td><input type="button" onclick="deletePre()" value="DEL" style="background:lightgreen;"></td>
 					<td><input type="button" onclick="clearall()" value="CL" style="background:lightgreen;"></td>
-					<td><input type="button" onclick="" value="M-"></td>
+					<td><input type="button" onclick="outMemory()" value="M-"></td>
 					</tr>
 					<tr>					
 					<td><input id="noEdit2" onClick="getNum('7')" type="button" value="7" style="background:#6A5ACD;"></td>
 					<td><input id="noEdit2" onclick="getNum('8')" type="button" value="8" style="background:#6A5ACD;"></td>
 					<td><input id="noEdit2" onclick="getNum('9')" type="button" value="9" style="background:#6A5ACD;"></td>
 					<td><input type="button" onclick="opr_Tag('+',5)" value="+" style="background:lightgreen;"></td>
-					<td><input type="button" value="M"></td>
+					<td><input type="button" value="MC" onclick="clrMemory()"></td>
 					</tr>
 					<tr>					
 					<td><input id="noEdit2" onclick="getNum('4')" type="button" value="4" style="background:#6A5ACD;"></td>
@@ -357,8 +360,7 @@ function express(expression)
 function tran_Conv(newconv) {
 	flag=true;
 	document.counter.display.value=(dec_Chg(to_Dec(document.counter.display.value,conv),newconv))
-	conv=newconv;
-	switch (conv){
+	switch (newconv){
 		case 2:
 			$("input#noEdit1,input#noEdit2,input#noEdit3").css("background-color","#ccc");
 			$("input#noEdit1,input#noEdit2,input#noEdit3").disabled=false;
@@ -366,7 +368,7 @@ function tran_Conv(newconv) {
 
 		case 10:
 			$("input#noEdit3").css("background-color","#ccc");
-		$("input#noEdit3").disabled=false;
+			$("input#noEdit3").disabled=false;
 			break;	
 
 		case 16:
@@ -374,6 +376,30 @@ function tran_Conv(newconv) {
 			$("input#noEdit1").disabled=false;
 			break;
 	}
+}
+
+/*存储器功能实现*/
+var mem=0;
+function outMemory(){
+	//取出功能
+	document.counter.display.value=dec_Chg(mem,conv);
+}
+
+function inMemory(){
+	//储存功能
+	flag=true;
+	if (document.counter.display.value!=0) {
+		mem=to_Dec(document.counter.display.value,conv);
+		document.counter.memory.value="Yes";
+	}else {
+		document.counter.memory.value=" ";
+	}
+}
+
+function clrMemory(){
+	//清除功能
+	mem=0;
+	document.counter.memory.value="  ";
 }
 </script>
 </html>
